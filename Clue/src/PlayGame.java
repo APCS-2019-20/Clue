@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class PlayGame {
@@ -14,6 +15,7 @@ public class PlayGame {
 			//Player keeps track of wrong answers 
 		//Make accusation when ready 
 		
+
 		intro();
 		Board.selectRoom();
 		
@@ -23,7 +25,7 @@ public class PlayGame {
 	
 	private static void intro() 
 	{
-		Scanner userInput = new Scanner(System.in);
+		Scannew Scanner(System.in);
 		System.out.println("Welcome to the Game of Clue! Do you want instructions? Yes (1) or No (2)?");
 		int choice = userInput.nextInt();
 		
@@ -46,5 +48,8 @@ public class PlayGame {
 	}
 
 	
+	
+	
+
 
 }
