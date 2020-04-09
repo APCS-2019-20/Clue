@@ -5,6 +5,7 @@ public class PlayGame {
 
 	public static void main(String[] args) 
 	{
+		//Test
 		//Assign player character
 		//Game selects person, place, and weapon then continues 
 		//Give character 3 cards (weapon, person, place); have to guess other cards 
