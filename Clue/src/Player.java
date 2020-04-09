@@ -16,8 +16,15 @@ public class Player
 	
 	public Player(Board b)
 	{
-		// fill this out later with more specific things
-		// needed to create a new player and include board player is playing on
+		name = b.assignName();
+		currentRoom = "hallway";
+		roomCard = b.pickRoomCard();
+		weaponCard = b.pickWeaponCard();
+		playerCard = b.pickPlayerCard();
+		
+		info.add(roomCard);
+		info.add(weaponCard);
+		info.add(playerCard);
 	}
 	
 	public void displayInfo()
