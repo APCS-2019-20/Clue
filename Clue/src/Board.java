@@ -104,7 +104,7 @@ public class Board
 	//Error check & display 
 	public void displayMurder()
 	{
-		System.out.println("Murder: " + murderer);
+		System.out.println("Murderer: " + murderer);
 		System.out.println("Room: " + murderRoom);
 		System.out.println("Weapon: " + murderWeapon);
 	}
@@ -185,23 +185,34 @@ public class Board
 		{
 			System.out.println(i + ": " + Rooms.get(i));
 		}
+		
 		String input = scanner.nextLine();
 		int choice = Integer.parseInt(input);
-		
+		p.setCurrentRoom(Rooms.get(choice));
 		p.setRoomCard(Rooms.get(choice));
+		
+		promptPlayerSuggestion(p);
+		checkSuggestion(p);
 	}
 	
 	//Prompts player to pick weapon and murderer 
 	public void promptPlayerSuggestion(Player p)
 	{
 		System.out.println("You are now in the: " + p.getCurrentRoom());
+		System.out.println("Would you like to suggest make a weapon and person suggestion? (1)Yes (2)No ");
+		String input = scanner.nextLine();
+		int choice = Integer.parseInt(input);
+		if (choice==1)
+		{
+		
+		 choice = Integer.parseInt(input);
 		System.out.println("What weapon would you like to suggest?");
 		for (int i=0; i < Weapons.size(); i++)
 		{
 			System.out.println(i + ": " + Weapons.get(i));
 		}
-		String input = scanner.nextLine();
-		int choice = Integer.parseInt(input);
+		 input = scanner.nextLine();
+		 choice = Integer.parseInt(input);
 		
 		p.setWeaponSuggestion(Weapons.get(choice));
 		
@@ -218,6 +229,13 @@ public class Board
 		System.out.println("Your Suggestion: " + p.getPlayerSuggestion() + " in the " + p.getCurrentRoom() + " with the " 
 				+ p.getWeaponSuggestion() + ".");
 		System.out.println();
+		checkSuggestion(p);
+		
+		}
+		
+		
+			basePrompt(p);
+		
 	}
 	
 	//Checks suggestion, utilizes cardsIfWrong 
@@ -239,7 +257,7 @@ public class Board
 			Random rand = new Random();
 			int randCard = rand.nextInt(cardsIfWrong.size());
 			String w = cardsIfWrong.get(randCard);
-			System.out.println("One of the other players show you the follwoing card: " + w);
+			System.out.println("One of the other players shows you the follwoing card: " + w);
 			p.info.add(w);
 		}
 		cardsIfWrong.clear();
@@ -284,11 +302,14 @@ public class Board
 		if (pAccusation.equals(murderer) && wAccusation.equals(murderWeapon) && rAccusation.equals(murderRoom))
 		{
 			System.out.println("You solved the murder! Congratulations, you win!!!");
+			displayMurder();
 			System.exit(0);
 		}
 		else
 		{
 			System.out.println("Sorry, but you were wrong. You lose. ");
+			System.out.println("The answer was: " );
+			displayMurder();
 			System.exit(0);
 		}
 	}

@@ -17,14 +17,14 @@ public class PlayGame {
 		//Make accusation when ready 
 		
 
-		intro();
+	//	intro();
 		
 		Board testBoard = new Board();
 		testBoard.setupMurder();
 		
 		Player testPlayer = new Player(testBoard);
-		
 		testBoard.introduction(testPlayer);
+		
 		
 		boolean dummy = true;
 		while (dummy)
